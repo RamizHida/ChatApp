@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   textInput: {
     width: '88%',
     fontSize: 16,
-    fontWeight: 300,
+    fontWeight: '300',
     color: '#757083',
     opacity: 0.5,
     padding: 15,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 45,
-    fontWeight: 600,
+    fontWeight: '600',
     color: '#ffffff',
   },
   button: {
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: 16,
-    fontWeight: 600,
+    fontWeight: '600',
     color: '#fff',
   },
   availableColors: {
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   chooseColorText: {
     fontSize: 16,
-    fontWeight: 300,
+    fontWeight: '300',
     opacity: 1,
     color: '#757083',
   },
