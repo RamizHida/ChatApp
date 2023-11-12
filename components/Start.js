@@ -6,6 +6,8 @@ import {
   TextInput,
   ImageBackground,
   TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 
 const Start = ({ navigation }) => {
@@ -54,6 +56,13 @@ const Start = ({ navigation }) => {
           <Text style={styles.btnText}>Start Chatting</Text>
         </TouchableOpacity>
       </View>
+      {/* if on ios, add component so bottom part of start screen isn't covered by keyboard*/}
+      {Platform.OS === 'ios' ? (
+        <KeyboardAvoidingView
+          style={{ marginBottom: 100 }}
+          behavior="padding"
+        />
+      ) : null}
     </ImageBackground>
   );
 };
