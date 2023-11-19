@@ -18,7 +18,10 @@ import {
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Chat = ({ route, navigation, db, isConnected }) => {
+import CustomActions from './CustomActions';
+import MapView from 'react-native-maps';
+
+const Chat = ({ route, navigation, db, isConnected, storage }) => {
   const { name } = route.params;
   const { background } = route.params;
   const { userID } = route.params;
@@ -100,13 +103,37 @@ const Chat = ({ route, navigation, db, isConnected }) => {
     );
   };
 
+  const renderCustomActions = (props) => {
+    return <CustomActions storage={storage} userID={userID} {...props} />;
+  };
+
+  const renderCustomView = (props) => {
+    const { currentMessage } = props;
+    if (currentMessage.location) {
+      return (
+        <MapView
+          style={{ width: 150, height: 100, borderRadius: 13, margin: 3 }}
+          region={{
+            latitude: currentMessage.location.latitude,
+            longitude: currentMessage.location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+      );
+    }
+    return null;
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: background }]}>
       <GiftedChat
         messages={messages}
         renderBubble={renderBubble}
+        renderActions={renderCustomActions}
         renderInputToolbar={renderInputToolbar}
         onSend={(messages) => onSend(messages)}
+        renderCustomView={renderCustomView}
         user={{
           _id: userID,
           name: name,
