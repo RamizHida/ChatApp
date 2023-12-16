@@ -20,4 +20,4 @@ to friends, send and take photos, and send your location.
 - React Native
 - Expo (cross platform development) 
 - Firebase for data storage and authentication (annoymous) 
-- Gift Chat for implementing common chat functionalites
+- Gifted Chat for implementing common chat functionalites
